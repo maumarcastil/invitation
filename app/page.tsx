@@ -15,7 +15,7 @@ export default function Home() {
   const eventData = {
     name: "Adriana",
     date: "24 de Enero, 2026",
-    targetDate: "2026-01-24T20:00:00",
+    targetDate: "2026-01-24T00:00:00",
     phoneNumber: "+573028666354",
     rsvpMessage:
       "Hola, quiero confirmar mi asistencia a los XV años de Adriana 💕",
