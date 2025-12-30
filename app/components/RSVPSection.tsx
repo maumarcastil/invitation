@@ -36,7 +36,9 @@ export function RSVPSection({ phoneNumber, message }: RSVPSectionProps) {
     })();
   };
 
-  const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+  const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
+    message
+  )}`;
 
   return (
     <section className="py-24 px-4 animated-gradient">
@@ -48,7 +50,11 @@ export function RSVPSection({ phoneNumber, message }: RSVPSectionProps) {
         >
           {/* Decorative */}
           <div className="mb-8">
-            <Heart className="inline-block text-accent" size={32} fill="currentColor" />
+            <Heart
+              className="inline-block text-accent"
+              size={32}
+              fill="currentColor"
+            />
           </div>
 
           {/* Title */}
@@ -58,7 +64,8 @@ export function RSVPSection({ phoneNumber, message }: RSVPSectionProps) {
 
           {/* Text */}
           <p className="text-gray-600 leading-relaxed mb-10 max-w-md mx-auto">
-            Espero con mucha ilusión que puedas acompañarme en este día tan especial.
+            Espero con mucha ilusión que puedas acompañarme en este día tan
+            especial.
             <br />
             <span className="font-medium">¡Confirma tu asistencia!</span>
           </p>
@@ -84,5 +91,3 @@ export function RSVPSection({ phoneNumber, message }: RSVPSectionProps) {
     </section>
   );
 }
-
-
