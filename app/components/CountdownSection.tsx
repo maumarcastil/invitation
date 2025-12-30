@@ -12,9 +12,10 @@ interface TimeLeft {
 
 interface CountdownSectionProps {
   targetDate: string;
+  eventDate: string;
 }
 
-export function CountdownSection({ targetDate }: CountdownSectionProps) {
+export function CountdownSection({ targetDate, eventDate }: CountdownSectionProps) {
   const calculateTimeLeft = (): TimeLeft => {
     const difference = +new Date(targetDate) - +new Date();
     let timeLeft: TimeLeft = { days: 0, hours: 0, minutes: 0, seconds: 0 };
@@ -69,6 +70,10 @@ export function CountdownSection({ targetDate }: CountdownSectionProps) {
           viewport={{ once: true }}
           className="text-center mb-10"
         >
+          {/* Event Date */}
+          <p className="text-2xl md:text-3xl font-cursive text-accent mb-4">
+            {eventDate}
+          </p>
           <p className="text-sm uppercase tracking-[0.2em] text-accent/70 mb-2">
             Faltan
           </p>
