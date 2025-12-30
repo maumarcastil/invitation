@@ -38,10 +38,13 @@ export default function Home() {
       <MusicButton />
 
       {/* Hero */}
-      <HeroSection name={eventData.name} date={eventData.date} />
+      <HeroSection name={eventData.name} heroImage="/img/6.jpeg" />
 
       {/* Countdown */}
-      <CountdownSection targetDate={eventData.targetDate} />
+      <CountdownSection
+        targetDate={eventData.targetDate}
+        eventDate={eventData.date}
+      />
 
       <Divider />
 

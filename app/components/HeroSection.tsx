@@ -1,24 +1,46 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 
 interface HeroSectionProps {
   name: string;
-  date: string;
+  heroImage?: string;
 }
 
-export function HeroSection({ name, date }: HeroSectionProps) {
+export function HeroSection({
+  name,
+  heroImage = "/img/6.jpeg",
+}: HeroSectionProps) {
+  const sectionRef = useRef<HTMLElement>(null);
+
+  const { scrollY } = useScroll();
+  const y = useTransform(scrollY, [0, 500], [0, 150]);
+  const scale = useTransform(scrollY, [0, 500], [1, 1.1]);
+
   return (
-    <section className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden animated-gradient">
-      {/* Decorative Elements */}
-      <div className="absolute top-10 left-10 w-32 h-32 bg-accent/5 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-20 right-10 w-40 h-40 bg-accent/5 rounded-full blur-3xl"></div>
-      
+    <section
+      ref={sectionRef}
+      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden"
+    >
+      {/* Background Image with Parallax */}
+      <motion.div style={{ y, scale }} className="absolute inset-0 z-0">
+        <img
+          src={heroImage}
+          alt={`Foto de ${name}`}
+          className="w-full h-full object-cover"
+        />
+      </motion.div>
+
+      {/* Dark Overlay */}
+      <div className="absolute inset-0 bg-black/40 z-10" />
+
+      {/* Content */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.2, ease: "easeOut" }}
-        className="text-center px-4 z-10"
+        className="relative z-20 text-center px-4 max-w-2xl"
       >
         {/* Decorative Top */}
         <motion.div
@@ -27,38 +49,38 @@ export function HeroSection({ name, date }: HeroSectionProps) {
           transition={{ delay: 0.5, duration: 0.8 }}
           className="mb-6"
         >
-          <span className="text-accent text-4xl">✿</span>
+          <span className="text-white/90 text-4xl drop-shadow-lg">✿</span>
         </motion.div>
 
         {/* Subtitle */}
-        <p className="text-sm md:text-base uppercase tracking-[0.3em] text-accent mb-4 font-serif">
+        <p className="text-sm md:text-base uppercase tracking-[0.3em] text-white/80 mb-4 font-serif drop-shadow-md">
           Mis XV Años
         </p>
 
         {/* Name */}
-        <h1 className="text-7xl md:text-9xl font-cursive text-accent mb-8 leading-tight">
+        <h1
+          className="text-7xl md:text-9xl font-cursive text-white mb-8 leading-tight drop-shadow-xl"
+          style={{ textShadow: "2px 4px 12px rgba(0,0,0,0.4)" }}
+        >
           {name}
         </h1>
 
         {/* Divider */}
-        <div className="divider mb-8">
-          <span className="text-accent text-xl">♡</span>
+        <div className="flex items-center justify-center gap-4 mb-8">
+          <span className="h-px w-16 bg-gradient-to-r from-transparent to-white/60" />
+          <span className="text-white text-xl drop-shadow-lg">♡</span>
+          <span className="h-px w-16 bg-gradient-to-l from-transparent to-white/60" />
         </div>
-
-        {/* Date */}
-        <p className="text-xl md:text-2xl font-serif text-gray-600 tracking-wider">
-          {date}
-        </p>
 
         {/* Invitation Text */}
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.5, duration: 1 }}
-          className="mt-10 text-gray-500 font-light max-w-md mx-auto leading-relaxed italic"
+          className="text-white/90 font-light max-w-md mx-auto leading-relaxed italic drop-shadow-md"
         >
-          "Te invito a compartir conmigo este día tan especial, 
-          donde los sueños se hacen realidad"
+          "Te invito a compartir conmigo este día tan especial, donde los sueños
+          se hacen realidad"
         </motion.p>
       </motion.div>
 
@@ -67,19 +89,17 @@ export function HeroSection({ name, date }: HeroSectionProps) {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 2.5 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2"
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20"
       >
-        <div className="flex flex-col items-center gap-2 text-accent/50">
+        <div className="flex flex-col items-center gap-2 text-white/60">
           <span className="text-xs uppercase tracking-widest">Desliza</span>
           <motion.div
             animate={{ y: [0, 8, 0] }}
             transition={{ duration: 1.5, repeat: Infinity }}
-            className="w-px h-8 bg-gradient-to-b from-accent to-transparent"
+            className="w-px h-8 bg-gradient-to-b from-white/60 to-transparent"
           />
         </div>
       </motion.div>
     </section>
   );
 }
-
-
