@@ -5,20 +5,17 @@ import { motion } from "framer-motion";
 import { Camera, ChevronLeft, ChevronRight } from "lucide-react";
 import { ImageLightbox } from "./ImageLightbox";
 
-const photos = [
-  { id: 1, url: "/img/1.jpeg", alt: "Foto 1" },
-  { id: 2, url: "/img/2.jpeg", alt: "Foto 2" },
-  { id: 3, url: "/img/3.jpeg", alt: "Foto 3" },
-  { id: 4, url: "/img/4.jpeg", alt: "Foto 4" },
-  { id: 5, url: "/img/5.jpeg", alt: "Foto 5" },
-  { id: 6, url: "/img/6.jpeg", alt: "Foto 6" },
-  { id: 7, url: "/img/7.jpeg", alt: "Foto 7" },
-  { id: 8, url: "/img/8.jpeg", alt: "Foto 8" },
-  { id: 9, url: "/img/9.jpeg", alt: "Foto 9" },
-  { id: 10, url: "/img/10.jpeg", alt: "Foto 10" },
-];
+interface Photo {
+  id: number;
+  url: string;
+  alt: string;
+}
 
-export function GallerySection() {
+interface GallerySectionProps {
+  photos: Photo[];
+}
+
+export function GallerySection({ photos }: GallerySectionProps) {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);

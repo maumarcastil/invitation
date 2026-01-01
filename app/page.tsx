@@ -15,21 +15,27 @@ export default function Home() {
   const eventData = {
     name: "Adriana",
     date: "24 de Enero, 2026",
-    targetDate: "2026-01-24T00:00:00",
+    targetDate: "2026-01-24T20:00:00",
     phoneNumber: "+573028666354",
     rsvpMessage:
       "Hola, quiero confirmar mi asistencia a los XV años de Adriana 💕",
     party: {
       time: "20:00 hs",
-      venue: "Salón de Fiestas Elegance",
-      address: "Av. de las Rosas #123, Ciudad",
-      mapLink: "https://maps.google.com",
+      venue: "Marsellesa Eventos",
+      address: "Cra. 52 #74-90, Barranquilla.",
+      mapLink: "https://maps.app.goo.gl/PeYZxvjy7bD4cK9K7",
     },
     dressCode: {
       code: "Formal / Elegante",
-      description: "Ellas: Vestido largo o de cóctel. Ellos: Traje o etiqueta.",
-      avoidColor: "Blanco y Rosa Pastel",
+      description: "Vestimenta: Vestido de gala o traje formal.",
+      avoidColor: "Rosa y sus tonos",
     },
+    photos: [
+      { id: 1, url: "/img/1.jpeg", alt: "Foto 1" },
+      { id: 2, url: "/img/2.jpeg", alt: "Foto 2" },
+      { id: 3, url: "/img/3.jpeg", alt: "Foto 3" },
+      { id: 4, url: "/img/4.jpeg", alt: "Foto 4" },
+    ],
   };
 
   return (
@@ -38,7 +44,7 @@ export default function Home() {
       <MusicButton />
 
       {/* Hero */}
-      <HeroSection name={eventData.name} heroImage="/img/6.jpeg" />
+      <HeroSection name={eventData.name} heroImage="/img/1.jpeg" />
 
       {/* Countdown */}
       <CountdownSection
@@ -71,7 +77,7 @@ export default function Home() {
       <GiftsSection />
 
       {/* Gallery */}
-      <GallerySection />
+      <GallerySection photos={eventData.photos} />
 
       <Divider />
 

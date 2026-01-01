@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
-import { Great_Vibes, Playfair_Display, Montserrat } from "next/font/google";
+import { Allura, Playfair_Display, Montserrat } from "next/font/google";
 import "./globals.css";
 
-const greatVibes = Great_Vibes({
-  weight: "400",
-  variable: "--font-great-vibes",
+const allura = Allura({
+  weight: ["400"],
+  variable: "--font-allura",
   subsets: ["latin"],
+  display: "swap",
 });
 
 const playfair = Playfair_Display({
@@ -31,7 +32,7 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body
-        className={`${greatVibes.variable} ${playfair.variable} ${montserrat.variable} antialiased`}
+        className={`${allura.variable} ${playfair.variable} ${montserrat.variable} antialiased`}
       >
         {children}
       </body>

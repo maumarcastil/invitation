@@ -6,6 +6,7 @@
   --accent: #b76e79;
   --accent-light: #f8e8e8;
   --accent-dark: #9a5a63;
+  --font-cursive: var(--font-allura);
 }
 
 @theme inline {
@@ -15,7 +16,7 @@
   --color-accent-light: var(--accent-light);
   --color-accent-dark: var(--accent-dark);
   
-  --font-cursive: var(--font-great-vibes);
+  --font-cursive: var(--font-allura);
   --font-serif: var(--font-playfair);
   --font-sans: var(--font-montserrat);
 }

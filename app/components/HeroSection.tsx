@@ -2,6 +2,13 @@
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
+import { Allura } from "next/font/google";
+
+const allura = Allura({
+  weight: "400",
+  subsets: ["latin"],
+  display: "swap",
+});
 
 interface HeroSectionProps {
   name: string;
@@ -28,7 +35,7 @@ export function HeroSection({
         <img
           src={heroImage}
           alt={`Foto de ${name}`}
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover object-center md:object-[center_30%]"
         />
       </motion.div>
 
@@ -59,7 +66,7 @@ export function HeroSection({
 
         {/* Name */}
         <h1
-          className="text-7xl md:text-9xl font-cursive text-white mb-8 leading-tight drop-shadow-xl"
+          className={`text-7xl md:text-9xl text-white mb-8 leading-tight drop-shadow-xl ${allura.className}`}
           style={{ textShadow: "2px 4px 12px rgba(0,0,0,0.4)" }}
         >
           {name}

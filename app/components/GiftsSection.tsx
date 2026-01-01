@@ -18,15 +18,9 @@ export function GiftsSection() {
           </div>
 
           {/* Title */}
-          <h2 className="text-4xl md:text-5xl font-cursive text-accent mb-6">
+          <h2 className="text-4xl md:text-5xl font-cursive text-accent mb-8">
             Regalos
           </h2>
-
-          {/* Text */}
-          <p className="text-gray-600 leading-relaxed mb-8 max-w-md mx-auto">
-            ¡Tu presencia es el mejor regalo!<br />
-            Pero si deseas tener un detalle conmigo, lo recibiré con mucho cariño.
-          </p>
 
           {/* Lluvia de Sobres - Info directa */}
           <div className="inline-flex items-center gap-2 px-8 py-3 border-2 border-accent text-accent rounded-full font-medium uppercase tracking-wider text-sm">
